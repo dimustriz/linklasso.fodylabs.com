@@ -45,37 +45,25 @@ import SiteMenu from '../components/SiteMenu.astro';
       <div class="cmp-table">
         <table>
           <thead>
-            <tr><th data-i18n="cmp.th.feature">Feature</th><th>LinkLasso</th><th>Linkclump</th></tr>
+            <tr><th data-i18n="cmp.th.feature">Feature</th><th>LinkLasso</th><th>Linkclump</th><th>Snap Links Plus</th><th>Link Klipper</th><th>Copy All URLs</th></tr>
           </thead>
           <tbody>
-            <tr><td data-i18n="cmp.f1">Manifest V3 (modern Chrome)</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f2">Drag-select with live highlight</td><td class="y">✓</td><td class="y">✓</td></tr>
-            <tr><td data-i18n="cmp.f3">Live word filters (include / exclude)</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f4">Regex + external-only + strip tracking</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f5">Metadata enrichment (Enrich)</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f6">Smart queue (anti-block)</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f7">Sort &amp; dedupe</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f8">Export TSV / CSV / Markdown / JSON</td><td class="y">✓</td><td class="p">~</td></tr>
-            <tr><td data-i18n="cmp.f9">Custom presets</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f10">Site allow/deny list</td><td class="y">✓</td><td class="p">~</td></tr>
-            <tr><td data-i18n="cmp.f11">Open in new window / download file</td><td class="y">✓</td><td class="y">✓</td></tr>
-            <tr><td data-i18n="cmp.f12">Free for core features</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f1">Manifest V3 (modern Chrome)</td><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f2">Drag-select with live highlight</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f3">Live word filters (include / exclude)</td><td class="y">✓</td><td class="n">✗</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f4">Regex + external-only + strip tracking</span> <span class="probadge">Pro</span></td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f5">Metadata enrichment (Enrich)</span> <span class="probadge">Pro</span></td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f6">Smart queue (anti-block)</span> <span class="probadge">Pro</span></td><td class="y">✓</td><td class="n">✗</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f7">Sort &amp; dedupe</td><td class="y">✓</td><td class="n">✗</td><td class="p">~</td><td class="p">~</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f8">Export TSV / CSV / Markdown / JSON</span> <span class="probadge">Pro</span></td><td class="y">✓</td><td class="p">~</td><td class="p">~</td><td class="p">~</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f9">Custom presets</span> <span class="probadge">Pro</span></td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f10">Site allow/deny list</td><td class="y">✓</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f11">Open in new window / download file</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f12">Free for core features</td><td class="y">✓</td><td class="y">✓</td><td class="p">~</td><td class="y">✓</td><td class="y">✓</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="cmp-legend">✓ yes · ~ partial · ✗ no</p>
-    </div>
-  </section>
-
-  <section class="section soft">
-    <div class="container">
-      <h2 data-i18n="cmp.others.title">Other alternatives</h2>
-      <ul class="cmp-others">
-        <li><strong>Snap Links Plus</strong> — <span data-i18n="cmp.others.snap">drag-select with some filtering (freemium).</span></li>
-        <li><strong>Link Klipper</strong> — <span data-i18n="cmp.others.klipper">extracts and copies links from a page (no drag-select).</span></li>
-        <li><strong>Copy All URLs</strong> — <span data-i18n="cmp.others.copy">copies URLs from open tabs (not a link selector).</span></li>
-      </ul>
-      <p class="lead" data-i18n="cmp.others.adds">LinkLasso adds live filters, metadata enrichment and a smart queue on top.</p>
+      <p class="cmp-legend">✓ yes · ~ partial · ✗ no · <span class="probadge">Pro</span> = paid</p>
     </div>
   </section>
 

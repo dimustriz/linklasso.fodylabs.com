@@ -140,10 +140,7 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
 .cmp-table .p { color: #b45309; font-weight: 600; }
 .cmp-table tr:last-child td { border-bottom: 0; }
 .cmp-legend { margin-top: 10px; font-size: 13px; color: var(--muted); }
-.cmp-others { list-style: none; padding: 0; margin: 0 0 24px; max-width: 640px; }
-.cmp-others li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--muted); }
-.cmp-others li:last-child { border-bottom: 0; }
-.cmp-others strong { color: var(--ink); }
+.probadge { display: inline-block; font-size: 10px; font-weight: 700; color: #fff; background: #111827; padding: 1px 6px; border-radius: 6px; vertical-align: middle; margin-left: 4px; letter-spacing: .02em; }
 
 /* Responsive */
 @media (max-width: 860px) {
