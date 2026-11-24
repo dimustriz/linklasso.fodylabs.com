@@ -50,23 +50,26 @@ import SiteMenu from '../components/SiteMenu.astro';
               <th>LinkLasso<br/><span class="th-tier" data-i18n="cmp.th.free">Free</span></th>
               <th>LinkLasso<br/><span class="th-tier">Pro</span></th>
               <th>Linkclump</th>
-              <th>Snap Links Plus</th>
+              <th>Snap Links Plus<br/><span class="th-tier">Firefox</span></th>
               <th>Link Klipper</th>
               <th>Copy All URLs</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td data-i18n="cmp.f1">Manifest V3 (modern Chrome)</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="p">~</td><td class="p">~</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f2">Drag-select with live highlight</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f3">Live word filters (include / exclude)</td><td class="y">✓</td><td class="y">✓</td><td class="p">~</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td><span data-i18n="cmp.f4">Regex + external-only + strip tracking</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td><span data-i18n="cmp.f5">Metadata enrichment (Enrich)</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td><span data-i18n="cmp.f6">Smart queue (anti-block)</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="p">~</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f7">Sort &amp; dedupe</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td><span data-i18n="cmp.f8">Export TSV / CSV / Markdown / JSON</span> <span class="probadge">Pro</span></td><td class="p">~</td><td class="y">✓</td><td class="p">~</td><td class="p">~</td><td class="p">~</td><td class="p">~</td></tr>
-            <tr><td><span data-i18n="cmp.f9">Custom presets</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f10">Site allow/deny list</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
-            <tr><td data-i18n="cmp.f11">Open in new window / download file</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="p">~</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f1">Select links by dragging a box</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f2">Open links in tabs / new window</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f3">Copy links to clipboard</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f4">Copy URLs from all open tabs</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f5">Save as bookmarks</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f6">Filter by words (include / exclude)</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f7">Checkbox / radio-button lasso</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f8">Regex + external-only + strip tracking</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f9">Metadata enrichment (Enrich)</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f10">Smart queue (delayed / anti-block opens)</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f11">Sort &amp; dedupe</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f12">Export to file (TSV / CSV / Markdown / JSON)</span> <span class="probadge">Pro</span></td><td class="p">~</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td><span data-i18n="cmp.f13">Custom presets</span> <span class="probadge">Pro</span></td><td class="n">✗</td><td class="y">✓</td><td class="p">~</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f14">Site allow/deny list</td><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td><td class="n">✗</td></tr>
           </tbody>
         </table>
       </div>
