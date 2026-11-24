@@ -1,0 +1,146 @@
+---
+// Header ☰ menu shared with the rent.wf services (src/lib/ui/menu.ts, prionav.ts).
+// Put it last inside the page's <header>. An optional <nav class="pnav"> in the same
+// header gets priority navigation: links that don't fit move into the menu.
+// Needs the host CSS variables --ink, --muted, --line.
+// The header becomes sticky and auto-hides on small screens (src/lib/ui/autohide.ts).
+// The page <head> must include <SiteHead /> (theme without a flash + dark palette).
+import { MENU_CSS, MENU_JS } from '../lib/ui/menu';
+import { PRIONAV_CSS, PRIONAV_JS } from '../lib/ui/prionav';
+import { AUTOHIDE_CSS, AUTOHIDE_JS } from '../lib/ui/autohide';
+
+const CSS = `${MENU_CSS}${PRIONAV_CSS}${AUTOHIDE_CSS}
+header:has(>.menu){display:flex;align-items:center;gap:16px}
+.menu{--card:#fff;--bg:#f1f5f9;flex:0 0 auto;margin-left:auto}
+html[data-theme="dark"] .menu{--card:#1e293b;--bg:#0f172a}
+.pnav+.menu{margin-left:0}
+.pnav a{color:var(--muted);text-decoration:none;font-size:14px;white-space:nowrap}
+.pnav a:hover{color:var(--ink)}
+.menu .m-item,.nav .menu a.m-item{color:var(--ink);font-size:14px;line-height:1.4}
+.menu .m-item[hidden]{display:none}
+.menu .menu-btn{position:relative;width:48px;height:48px;border-radius:50%;font-size:0;padding:0}
+.menu .menu-btn::before{content:"";position:absolute;left:50%;top:50%;width:20px;height:2px;margin:-1px 0 0 -10px;border-radius:2px;background:currentColor;box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor}
+.menu .menu-panel{box-sizing:border-box;width:min(200px,calc(100vw - 48px));min-width:0;max-width:none;max-height:min(300px,calc(100dvh - 90px))}
+.theme-switch{display:flex;align-items:center;gap:2px;background:var(--bg);border:1px solid var(--line);border-radius:9px;padding:2px}
+.theme-switch button{flex:1 1 0;min-width:0;overflow:hidden;text-overflow:ellipsis;border:0;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:600;padding:5px 2px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.theme-switch button.active{background:var(--card);color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+html[data-theme="dark"] .theme-switch button.active{background:#334155;color:#e2e8f0}
+.m-lang-cur{flex:1}
+.m-chev{flex:0 0 auto;color:var(--muted);transition:transform .15s}
+.m-item[aria-expanded="true"] .m-chev{transform:rotate(180deg)}
+.m-langs{padding:2px 0 4px 30px}
+.m-langs[hidden]{display:none}
+.m-langs .m-item{font-weight:500;padding:7px 12px}
+.m-langs .m-item.active{color:var(--accent);font-weight:700}
+.m-theme{padding:2px 0 0}
+.m-theme .m-label-row{display:flex;align-items:center;gap:10px;padding:7px 12px 4px;font-size:14px;font-weight:600;color:var(--ink)}
+.m-theme .theme-switch{margin:0 4px 4px}`;
+
+const JS = `${MENU_JS}${PRIONAV_JS}${AUTOHIDE_JS}
+(function () {
+  var KEY = 'linklasso_site_theme';
+  var themeSwitch = document.getElementById('menuTheme');
+  var langItem = document.getElementById('menuLangItem');
+  var langBtn = document.getElementById('menuLangBtn');
+  var langList = document.getElementById('menuLangList');
+
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function isDark() {
+    var t = stored();
+    if (t === 'dark') return true;
+    if (t === 'light') return false;
+    return !!(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+  }
+  function themeValue() { var t = stored(); return (t === 'light' || t === 'dark') ? t : 'auto'; }
+  function paintTheme() {
+    if (!themeSwitch) return;
+    document.documentElement.setAttribute('data-theme', isDark() ? 'dark' : 'light');
+    try { document.dispatchEvent(new CustomEvent('linklasso:themechange')); } catch (e) {}
+    var val = themeValue();
+    [].forEach.call(themeSwitch.querySelectorAll('button'), function (b) {
+      b.classList.toggle('active', b.getAttribute('data-theme-val') === val);
+    });
+  }
+  function toggleLangs(open) {
+    langList.hidden = !open;
+    langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  function paintLang() {
+    if (!langItem || !window.I18N) return;
+    if (!langList.children.length) {
+      langList.innerHTML = Object.keys(I18N.LANGS).map(function (c) {
+        return '<button type="button" class="m-item" role="option" data-menu-lang="' + c + '">' + I18N.LANGS[c] + '</button>';
+      }).join('');
+      langBtn.addEventListener('click', function () { toggleLangs(langList.hidden); });
+      langList.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-menu-lang]');
+        if (!b) return;
+        I18N.set(b.getAttribute('data-menu-lang'));
+        toggleLangs(false);
+      });
+      langItem.hidden = false;
+    }
+    document.getElementById('menuLangCur').textContent = I18N.LANGS[I18N.current];
+    [].forEach.call(langList.children, function (b) {
+      var on = b.getAttribute('data-menu-lang') === I18N.current;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+  }
+
+  if (themeSwitch) {
+    paintTheme();
+    themeSwitch.addEventListener('click', function (e) {
+      var btn = e.target.closest('button');
+      if (!btn) return;
+      var val = btn.getAttribute('data-theme-val');
+      try {
+        if (val === 'auto') localStorage.removeItem(KEY); else localStorage.setItem(KEY, val);
+      } catch (e2) {}
+      paintTheme();
+    });
+    if (window.matchMedia) {
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      if (mq.addEventListener) mq.addEventListener('change', paintTheme);
+      else if (mq.addListener) mq.addListener(paintTheme);
+    }
+  }
+  function boot() {
+    initMenu('menuRoot');
+    var bar = document.getElementById('menuRoot').closest('header');
+    if (bar) initAutoHide(bar, null);
+    var nav = document.querySelector('.pnav');
+    if (nav) initPriorityNav(nav, document.getElementById('navOverflow'), { bar: nav.parentElement });
+    paintLang();
+    document.addEventListener('i18n:change', paintLang);
+    new MutationObserver(function () {
+      if (!document.getElementById('menuRoot').classList.contains('open') && langList) toggleLangs(false);
+    }).observe(document.getElementById('menuRoot'), { attributes: true, attributeFilter: ['class'] });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+})();`;
+---
+
+<style is:inline set:html={CSS}></style>
+<div class="menu" id="menuRoot">
+  <button class="menu-btn" type="button" aria-label="Menu" aria-expanded="false">☰</button>
+  <div class="menu-panel">
+    <div class="pnav-overflow" id="navOverflow" hidden></div>
+    <div id="menuLangItem" hidden>
+      <button class="m-item" type="button" id="menuLangBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
+        <span class="m-ico">🌐</span><span class="m-lang-cur" id="menuLangCur"></span>
+        <svg class="m-chev" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M3 5l3 3 3-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="m-langs" id="menuLangList" role="listbox" hidden></div>
+    </div>
+    <div class="m-theme">
+      <div class="m-label-row"><span class="m-ico">🌓</span><span data-i18n="theme.title">Theme</span></div>
+      <div class="theme-switch" id="menuTheme" role="radiogroup" aria-label="Theme">
+        <button type="button" data-theme-val="auto" data-i18n="theme.auto">Auto</button>
+        <button type="button" data-theme-val="light" data-i18n="theme.light">Light</button>
+        <button type="button" data-theme-val="dark" data-i18n="theme.dark">Dark</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script is:inline set:html={JS}></script>

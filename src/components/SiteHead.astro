@@ -1,0 +1,50 @@
+---
+// Goes in every page's <head> that uses SiteMenu: applies the saved/system theme
+// before the first paint (no light flash) and provides a generic dark palette for
+// plain content pages, the .tbl scroll wrapper for wide tables, and the shared edge inset for ☰ and the chat FAB. Pages with their own dark rules pass `ownDark`.
+interface Props {
+  ownDark?: boolean;
+}
+const { ownDark = false } = Astro.props;
+
+const COLUMN = 1080;
+
+// The chat FAB/panel share the ☰ button's right inset and the same 24px bottom gap.
+const EDGE = `max(24px, calc((100vw - ${COLUMN}px) / 2 + 24px))`;
+const EDGE_CSS = `:root{--ce-offset:${EDGE};--ce-bottom:calc(24px + env(safe-area-inset-bottom, 0px))}`;
+
+// Sticky translucent top bar. On small screens autohide slides it away on scroll down; on wide
+// screens it stays as a centered bar attached to the top edge (the same column as --ce-offset below).
+const BAR_CSS = `html{scroll-padding-top:76px}
+header:has(>.menu){position:sticky;top:0;z-index:50;border:0!important;--ah-solid:#fff;background:color-mix(in srgb,var(--ah-solid) 72%,transparent);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px)}
+html[data-theme="dark"] header:has(>.menu){--ah-solid:#0b1220}
+@media (min-width:${COLUMN + 32}px){header:has(>.menu){box-sizing:border-box;max-width:${COLUMN}px;margin:0 auto;border-radius:0 0 18px 18px;box-shadow:0 8px 24px rgba(0,0,0,.06)}}`;
+
+const D = 'html[data-theme="dark"] body';
+const DARK_CSS = `
+html[data-theme="dark"]{color-scheme:dark;--ink:#e2e8f0;--muted:#94a3b8;--line:#334155;--accent:#818cf8;--accent-2:#a5b4fc;--accent-dark:#a5b4fc;--bg:#0f172a;--green:#34d399}
+${D}{background:#0b1220;color:var(--ink)}
+${D} code{background:#1e293b}
+${D} pre{background:#020617;border:1px solid #1e293b}
+${D} pre code{background:none}
+${D} th{background:#0f172a}
+${D} :is(.card,.s-node,.s-item,.step,.platform,.button:not(.primary),.dialog-box,.note,.callout){background:#1e293b;border-color:var(--line)}
+${D} :is(.s-edge,.s-lever,.notice){background:#1e1b4b}
+${D} .notice{color:#c7d2fe}
+${D} .callout.warn{background:#422006;border-color:#9a3412}
+${D} .platform .tag{background:#064e3b}
+${D} .dialog-btn.secondary{background:#334155;color:#e2e8f0;border-color:#475569}
+${D} article blockquote{border-left-color:#4338ca;color:var(--muted)}
+${D} pre.mermaid{background:#f1f5f9}
+${D} :is(.lead,.dek,.eyebrow){color:var(--muted)}
+${D} li>p{color:var(--muted)}
+`;
+
+// Wide tables scroll inside their wrapper instead of stretching the page.
+const TABLE_CSS = '.tbl{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}';
+
+const INIT = `(function(){try{var t=localStorage.getItem('linklasso_site_theme');var d=t==='dark'||(t!=='light'&&window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');}catch(e){}})();`;
+---
+
+<script is:inline set:html={INIT}></script>
+<style is:inline set:html={EDGE_CSS + TABLE_CSS + BAR_CSS + (ownDark ? '' : DARK_CSS)}></style>

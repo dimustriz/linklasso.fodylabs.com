@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import SiteHead from '../components/SiteHead.astro';
+import SiteMenu from '../components/SiteMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <SiteHead ownDark />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy Policy — LinkLasso</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="/favicon.png" sizes="64x64" />
+  <style is:global>
+    .legal { max-width: 720px; margin: 0 auto; padding: 40px 24px 64px; }
+    .legal h1 { font-size: 30px; margin-bottom: 4px; }
+    .legal h2 { font-size: 19px; margin-top: 32px; }
+    .legal .updated { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+    .legal li { margin-bottom: 8px; }
+    .legal code { background: var(--bg); padding: 1px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><span class="logo"></span>LinkLasso</a>
+    <SiteMenu />
+  </header>
+
+  <div class="legal">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 2026-11-23</p>
+
+    <p>LinkLasso is a Chrome extension that lets you select multiple links on a page and open, copy or export them. This policy explains what data the extension handles.</p>
+
+    <h2>Data stored locally</h2>
+    <p>All of the following is stored in your browser via <code>chrome.storage</code> and never leaves your device except as described in "Network requests" below:</p>
+    <ul>
+      <li><strong>Settings</strong> — your preferences (trigger key/button, actions, filters, queue options) and saved presets.</li>
+      <li><strong>Pro status</strong> — a cached flag indicating whether you have an active paid plan or trial (set by the payment provider).</li>
+      <li><strong>Queue state</strong> — the list of links waiting to be opened, for the "smart queue" feature.</li>
+    </ul>
+    <p>Settings may sync between your Chrome profiles if you have Chrome Sync enabled (via <code>chrome.storage.sync</code>).</p>
+
+    <h2>Network requests</h2>
+    <ul>
+      <li><strong>extensionpay.com</strong> — used to check your paid/trial status and to process payments. Payment details are handled by ExtensionPay (extensionpay.com) and Stripe; LinkLasso does not see or store your card data.</li>
+      <li><strong>The links you select</strong> — only when you run the "Enrich" action, LinkLasso fetches a small portion of each selected page (the first ~150 KB) to read its title, description and OpenGraph image. This happens on demand, only for the URLs you explicitly chose, and the result is placed directly into your export — it is not stored or sent anywhere else.</li>
+    </ul>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><strong>storage</strong> — for settings, cached status and queue state.</li>
+      <li><strong>alarms</strong> — for the queue's resume watchdog.</li>
+      <li><strong>bookmarks (optional)</strong> — used only when you explicitly choose "Save as bookmarks"; you can grant or revoke it at any time, and it is not required for other features.</li>
+      <li><strong>Host access (&lt;all_urls&gt;)</strong> — required for the selection feature to work on every site and for the on-demand metadata fetch.</li>
+    </ul>
+
+    <h2>What LinkLasso does NOT do</h2>
+    <ul>
+      <li>No analytics, no tracking, no advertising.</li>
+      <li>No collection or sale of personal data.</li>
+      <li>No reading of your browsing history or bookmarks unless you use "Save as bookmarks".</li>
+    </ul>
+
+    <h2>Third-party services</h2>
+    <ul>
+      <li><strong>ExtensionPay</strong> (extensionpay.com) — payment and Pro-status management. See their privacy policy for details.</li>
+      <li><strong>Stripe</strong> — payment processing, used by ExtensionPay.</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>For questions about this policy, contact the extension developer via the Chrome Web Store support link or at fodylabs.com.</p>
+  </div>
+
+  <footer class="section alt footer">
+    <div class="container">
+      <div class="muted">LinkLasso · Select, Open &amp; Export Multiple Links</div>
+      <div class="flinks">
+        <a href="/">Home</a>
+        <a href="https://fodylabs.com">FodyLabs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/i18n.js" is:inline></script>
+  <script is:inline>I18N.init();</script>
+</body>
+</html>

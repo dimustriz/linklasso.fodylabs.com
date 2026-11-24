@@ -1,0 +1,194 @@
+---
+import '../styles/global.css';
+import SiteHead from '../components/SiteHead.astro';
+import SiteMenu from '../components/SiteMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <SiteHead ownDark />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkLasso — Select, Open &amp; Export Multiple Links</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="/favicon.png" sizes="64x64" />
+  <link rel="apple-touch-icon" href="/favicon.png" />
+  <meta name="description" content="Drag a box to open, copy or export links — with filters, metadata enrichment and a smart open queue for SEO research." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="LinkLasso" />
+  <meta property="og:title" content="LinkLasso — Select, Open &amp; Export Multiple Links" />
+  <meta property="og:description" content="Drag a box to open, copy or export links — with filters, metadata enrichment and a smart open queue for SEO research." />
+  <meta property="og:url" content="https://linklasso.fodylabs.com/" />
+  <meta property="og:image" content="https://linklasso.fodylabs.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><span class="logo"></span>LinkLasso</a>
+    <nav class="pnav" id="topNav">
+      <a href="#how" data-priority="1" data-i18n="nav.how">How it works</a>
+      <a href="#screenshots" data-priority="2" data-i18n="nav.screenshots">Screenshots</a>
+      <a href="#pricing" data-priority="3" data-i18n="nav.pricing">Pricing</a>
+      <a href="#faq" data-priority="4" data-i18n="nav.faq">FAQ</a>
+    </nav>
+    <a class="btn primary btn-sm" href="#" data-i18n="nav.install">Install</a>
+    <SiteMenu />
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow" data-i18n="hero.kicker">Select · Open · Export</p>
+        <h1 data-i18n="hero.title">Drag a box to open, copy or export any links on a page.</h1>
+        <p class="subtitle" data-i18n="hero.sub">LinkLasso is the modern Linkclump alternative — select links with a key + mouse, filter them live, and export them as a table, Markdown or JSON. Smart queue included.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#" data-i18n="hero.install">Install from Chrome Web Store</a>
+          <a class="btn ghost" href="#features" data-i18n="hero.features">See features</a>
+        </div>
+        <p class="hint" data-i18n="hero.hint">Free · 7-day Pro trial · No account required</p>
+      </div>
+      <div class="window">
+        <div class="window-bar"><i></i><i></i><i></i><span class="url">https://shop.example.com</span></div>
+        <div class="page">
+          <h4>Product list</h4>
+          <div class="linkrow sel"><span class="dot"></span>Wireless headphones</div>
+          <div class="linkrow sel"><span class="dot"></span>Bluetooth speaker</div>
+          <div class="linkrow sel"><span class="dot"></span>USB-C hub</div>
+          <div class="linkrow sel"><span class="dot"></span>Mechanical keyboard</div>
+          <div class="linkrow sel"><span class="dot"></span>4K monitor</div>
+          <div class="selection-box"><span class="count">5 links</span></div>
+        </div>
+        <div class="action-bar">
+          <div class="bar-row">
+            <span class="n">5 links</span>
+            <button class="ab primary">Open</button>
+            <button class="ab">Copy URLs</button>
+            <button class="ab">Table</button>
+            <button class="ab">CSV</button>
+            <button class="ab">Markdown</button>
+            <button class="ab">Bookmarks</button>
+            <button class="ab pro">Enrich · Pro</button>
+            <button class="ab pro">JSON · Pro</button>
+            <button class="ab pro">Queue · Pro</button>
+          </div>
+          <div class="hint">Click links to add or remove · Enter = Open · Esc to cancel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="features">
+    <div class="container">
+      <h2 data-i18n="feat.title">Everything you need to collect links</h2>
+      <p class="lead" data-i18n="feat.lead">Select once, then open, copy or export — with the filters and formats that actually save time.</p>
+      <div class="grid">
+        <div class="card"><span class="tag">Free</span><h3 data-i18n="feat1.t">Drag-select</h3><p data-i18n="feat1.d">Hold Z and draw a box — auto-scroll, live highlight and a live counter.</p></div>
+        <div class="card"><span class="tag">Free</span><h3 data-i18n="feat2.t">Action bar</h3><p data-i18n="feat2.d">Open, Copy URLs, Table (TSV), CSV, Markdown, Bookmarks.</p></div>
+        <div class="card"><span class="tag">Free</span><h3 data-i18n="feat3.t">Filter &amp; sort</h3><p data-i18n="feat3.d">Words, sort by page/domain/title, dedupe by URL or domain.</p></div>
+        <div class="card"><span class="tag">Free</span><h3 data-i18n="feat4.t">Open anywhere</h3><p data-i18n="feat4.d">New tabs or a new window; download results as a file.</p></div>
+        <div class="card"><span class="tag">Free</span><h3 data-i18n="feat5.t">Site list</h3><p data-i18n="feat5.d">Run it only on the sites you want with an allow/deny list.</p></div>
+        <div class="card"><span class="tag pro">Pro</span><h3 data-i18n="feat6.t">Enrich</h3><p data-i18n="feat6.d">Fetch title, description and OG image for each link, exported as a spreadsheet.</p></div>
+        <div class="card"><span class="tag pro">Pro</span><h3 data-i18n="feat7.t">Advanced filters</h3><p data-i18n="feat7.d">External links only, regex, strip utm/fbclid tracking.</p></div>
+        <div class="card"><span class="tag pro">Pro</span><h3 data-i18n="feat8.t">Smart queue</h3><p data-i18n="feat8.d">Batch, spread over minutes, or keep-N-open — with randomized intervals.</p></div>
+        <div class="card"><span class="tag pro">Pro</span><h3 data-i18n="feat9.t">Presets &amp; JSON</h3><p data-i18n="feat9.d">Save your own presets; copy as JSON; the SEO research preset.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="how">
+    <div class="container">
+      <h2 data-i18n="how.title">Three steps, done in seconds</h2>
+      <p class="lead" data-i18n="how.lead">No setup, no account — just install and drag.</p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3 data-i18n="step1.t">Select</h3><p data-i18n="step1.d">Hold Z and drag a box over links (or click the toolbar icon for selection mode).</p></div>
+        <div class="step"><div class="num">2</div><h3 data-i18n="step2.t">Choose</h3><p data-i18n="step2.d">Release and pick an action in the bar — Open, Copy, Table, Markdown and more.</p></div>
+        <div class="step"><div class="num">3</div><h3 data-i18n="step3.t">Export</h3><p data-i18n="step3.d">Copy, download, open in tabs, or enrich with metadata and export a spreadsheet.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="screenshots">
+    <div class="container">
+      <h2 data-i18n="shots.title">Screenshots</h2>
+      <p class="lead" data-i18n="shots.lead">LinkLasso in action — from selection to a clean export.</p>
+      <div class="shots">
+        <figure><img src="/screenshots/options.png" alt="Options page" /><figcaption data-i18n="shot1">Options</figcaption></figure>
+        <figure><img src="/screenshots/selection.png" alt="Drag-select" /><figcaption data-i18n="shot2">Drag-select</figcaption></figure>
+        <figure><img src="/screenshots/actionbar.png" alt="Action bar" /><figcaption data-i18n="shot3">Action bar</figcaption></figure>
+        <figure><img src="/screenshots/enrich.png" alt="Enriched export" /><figcaption data-i18n="shot4">Enriched export</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="pricing">
+    <div class="container">
+      <h2 data-i18n="price.title">Pricing</h2>
+      <p class="lead" data-i18n="price.lead">Free for everyday use. Go Pro for SEO research and bulk workflows.</p>
+      <div class="pricing">
+        <div class="price-card">
+          <p class="plan" data-i18n="free.plan">Free</p>
+          <p class="price" data-i18n="free.price">$0</p>
+          <p class="period" data-i18n="free.period">forever</p>
+          <ul>
+            <li data-i18n="free.l1">Unlimited drag-select</li>
+            <li data-i18n="free.l2">Open, Copy URLs, Table, CSV, Markdown, Bookmarks</li>
+            <li data-i18n="free.l3">Sort, dedupe, new window, download, site list</li>
+          </ul>
+          <a class="btn ghost" href="#" data-i18n="free.cta">Install</a>
+        </div>
+        <div class="price-card featured">
+          <p class="plan" data-i18n="pro.plan">Pro</p>
+          <p class="price" data-i18n="pro.price">7 days free</p>
+          <p class="period" data-i18n="pro.period">then see pricing in the extension</p>
+          <ul>
+            <li data-i18n="pro.l1">Enrich links with page metadata</li>
+            <li data-i18n="pro.l2">Advanced filters (external, regex, strip tracking)</li>
+            <li data-i18n="pro.l3">Smart queue with randomized intervals</li>
+            <li data-i18n="pro.l4">Copy as JSON, save your own presets</li>
+            <li data-i18n="pro.l5">SEO research preset</li>
+          </ul>
+          <a class="btn primary" href="#" data-i18n="pro.cta">Start free trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="container faq">
+      <h2 data-i18n="faq.title">FAQ</h2>
+      <details open>
+        <summary data-i18n="faq.q1">How do I select links?</summary>
+        <p data-i18n="faq.a1">Hold Z and drag a box over the links. Or click the toolbar icon (or Alt+Shift+L) to turn on selection mode and drag without a key.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q2">Does it work on every site?</summary>
+        <p data-i18n="faq.a2">On any normal website. Chrome blocks extensions on chrome:// pages, the Web Store and PDFs.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q3">What's in Pro?</summary>
+        <p data-i18n="faq.a3">Metadata enrichment, advanced filters, smart queue, JSON export, custom presets and the SEO research preset.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq.q4">Is my data private?</summary>
+        <p data-i18n="faq.a4">Yes — settings stay in your browser, nothing is uploaded, and there's no analytics or tracking.</p>
+      </details>
+    </div>
+  </section>
+
+  <footer class="section alt footer">
+    <div class="container">
+      <div class="muted" data-i18n="foot.tag">LinkLasso · Select, Open &amp; Export Multiple Links</div>
+      <div class="flinks">
+        <a href="/privacy">Privacy</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="https://fodylabs.com">FodyLabs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/i18n.js" is:inline></script>
+  <script is:inline>I18N.init();</script>
+</body>
+</html>
