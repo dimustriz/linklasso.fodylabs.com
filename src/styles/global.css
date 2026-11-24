@@ -38,9 +38,7 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
 /* Header */
 .nav { padding: 14px 24px; border-bottom: 1px solid var(--line); }
 .brand { font-weight: 800; font-size: 18px; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; flex: 0 0 auto; display: inline-flex; align-items: center; gap: 10px; }
-.logo { width: 26px; height: 26px; border-radius: 7px; background: var(--accent); position: relative; flex: 0 0 auto; }
-.logo::after { content: ""; position: absolute; inset: 6px; border: 2.5px solid #fff; border-radius: 50%; }
-.logo::before { content: ""; position: absolute; left: 15px; top: 17px; width: 8px; height: 2.5px; background: #fff; transform: rotate(45deg); transform-origin: left; }
+.logo { width: 26px; height: 26px; flex: 0 0 auto; }
 .pnav { --pnav-gap: 20px; }
 .nav .btn-sm { flex: 0 0 auto; }
 
@@ -130,6 +128,22 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.02em; }
 .footer .flinks { display: flex; gap: 20px; }
 .footer .flinks a { color: rgba(255,255,255,.7); font-size: 14px; }
 .footer .flinks a:hover { color: #fff; }
+
+/* Comparison table */
+.cmp-table { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+.cmp-table table { width: 100%; border-collapse: collapse; font-size: 15px; background: var(--card); min-width: 520px; }
+.cmp-table th, .cmp-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--line); }
+.cmp-table th { background: var(--bg); font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+.cmp-table th:not(:first-child), .cmp-table td:not(:first-child) { text-align: center; }
+.cmp-table .y { color: var(--accent); font-weight: 700; }
+.cmp-table .n { color: var(--muted); }
+.cmp-table .p { color: #b45309; font-weight: 600; }
+.cmp-table tr:last-child td { border-bottom: 0; }
+.cmp-legend { margin-top: 10px; font-size: 13px; color: var(--muted); }
+.cmp-others { list-style: none; padding: 0; margin: 0 0 24px; max-width: 640px; }
+.cmp-others li { padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+.cmp-others li:last-child { border-bottom: 0; }
+.cmp-others strong { color: var(--ink); }
 
 /* Responsive */
 @media (max-width: 860px) {

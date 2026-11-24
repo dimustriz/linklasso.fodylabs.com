@@ -1,0 +1,104 @@
+---
+import '../styles/global.css';
+import SiteHead from '../components/SiteHead.astro';
+import SiteMenu from '../components/SiteMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <SiteHead ownDark />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LinkLasso vs Linkclump — a modern alternative</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+  <meta name="description" content="LinkLasso is a modern Linkclump alternative: live filters, metadata enrichment and a smart open queue. See the comparison." />
+  <meta property="og:title" content="LinkLasso vs Linkclump — a modern alternative" />
+  <meta property="og:description" content="Drag-select links, filter them live, and export — with a smart queue that won't get you blocked." />
+  <meta property="og:url" content="https://linklasso.fodylabs.com/linkclump-alternative/" />
+  <meta property="og:image" content="https://linklasso.fodylabs.com/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" class="logo" />LinkLasso</a>
+    <SiteMenu />
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow" data-i18n="cmp.kicker">Linkclump alternative</p>
+      <h1 data-i18n="cmp.title">Linkclump is showing its age. Meet LinkLasso.</h1>
+      <p class="subtitle" data-i18n="cmp.sub">Drag-select links, filter them live, and export — with a smart queue that won't get you blocked.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="#" data-i18n="cmp.install">Install LinkLasso</a>
+        <a class="btn ghost" href="/#features" data-i18n="cmp.features">See features</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="cmp.why">Why switch</h2>
+      <p class="lead" data-i18n="cmp.why.sub">Linkclump is a classic, but it runs on the old Manifest V2 and hasn't kept up. LinkLasso is rebuilt for modern Chrome.</p>
+      <div class="cmp-table">
+        <table>
+          <thead>
+            <tr><th data-i18n="cmp.th.feature">Feature</th><th>LinkLasso</th><th>Linkclump</th></tr>
+          </thead>
+          <tbody>
+            <tr><td data-i18n="cmp.f1">Manifest V3 (modern Chrome)</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f2">Drag-select with live highlight</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f3">Live word filters (include / exclude)</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f4">Regex + external-only + strip tracking</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f5">Metadata enrichment (Enrich)</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f6">Smart queue (anti-block)</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f7">Sort &amp; dedupe</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f8">Export TSV / CSV / Markdown / JSON</td><td class="y">✓</td><td class="p">~</td></tr>
+            <tr><td data-i18n="cmp.f9">Custom presets</td><td class="y">✓</td><td class="n">✗</td></tr>
+            <tr><td data-i18n="cmp.f10">Site allow/deny list</td><td class="y">✓</td><td class="p">~</td></tr>
+            <tr><td data-i18n="cmp.f11">Open in new window / download file</td><td class="y">✓</td><td class="y">✓</td></tr>
+            <tr><td data-i18n="cmp.f12">Free for core features</td><td class="y">✓</td><td class="y">✓</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="cmp-legend">✓ yes · ~ partial · ✗ no</p>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <h2 data-i18n="cmp.others.title">Other alternatives</h2>
+      <ul class="cmp-others">
+        <li><strong>Snap Links Plus</strong> — <span data-i18n="cmp.others.snap">drag-select with some filtering (freemium).</span></li>
+        <li><strong>Link Klipper</strong> — <span data-i18n="cmp.others.klipper">extracts and copies links from a page (no drag-select).</span></li>
+        <li><strong>Copy All URLs</strong> — <span data-i18n="cmp.others.copy">copies URLs from open tabs (not a link selector).</span></li>
+      </ul>
+      <p class="lead" data-i18n="cmp.others.adds">LinkLasso adds live filters, metadata enrichment and a smart queue on top.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 data-i18n="cmp.more">The short version</h2>
+      <p class="lead" data-i18n="cmp.more.sub">If you just want to open a few links, both work. If you collect links for research or SEO, LinkLasso saves you the copy-paste and the rate-limiting headaches.</p>
+      <a class="btn primary" href="#" data-i18n="cmp.install2">Install LinkLasso</a>
+    </div>
+  </section>
+
+  <footer class="section alt footer">
+    <div class="container">
+      <div class="muted" data-i18n="foot.tag">LinkLasso · Select, Open &amp; Export Multiple Links</div>
+      <div class="flinks">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="https://fodylabs.com">FodyLabs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/i18n.js" is:inline></script>
+  <script is:inline>I18N.init();</script>
+</body>
+</html>
