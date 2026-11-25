@@ -22,12 +22,18 @@ npm run preview   # preview the build
 
 ## Deploy
 
-This is a static site — deploy `dist/` to the subdomain `linklasso.fodylabs.com` (Cloudflare Pages / any static host).
+Static site on Cloudflare Pages (`linklasso.fodylabs.com`). GitHub Actions (`.github/workflows/deploy.yml`) runs `npm run build` → `dist/` and `wrangler pages deploy` on every push to `main`.
 
-The privacy policy URL for the Chrome Web Store:
+Required in the GitHub repo settings:
+
+- **Secrets** — `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+- **Variable** — `CLOUDFLARE_PAGES_PROJECT`: the Cloudflare Pages project name.
+
+The store / OAuth consent screen URLs:
 
 ```
 https://linklasso.fodylabs.com/privacy
+https://linklasso.fodylabs.com/terms
 ```
 
 ## Before publishing
