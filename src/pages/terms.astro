@@ -1,0 +1,93 @@
+---
+import '../styles/global.css';
+import SiteHead from '../components/SiteHead.astro';
+import SiteMenu from '../components/SiteMenu.astro';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <SiteHead ownDark />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Service — LinkLasso</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+  <link rel="icon" href="/favicon.png" sizes="64x64" />
+  <style is:global>
+    .legal { max-width: 720px; margin: 0 auto; padding: 40px 24px 64px; }
+    .legal h1 { font-size: 30px; margin-bottom: 4px; }
+    .legal h2 { font-size: 19px; margin-top: 32px; }
+    .legal .updated { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+    .legal li { margin-bottom: 8px; }
+    .legal code { background: var(--bg); padding: 1px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="/"><img src="/favicon.svg" alt="" class="logo" />LinkLasso</a>
+    <SiteMenu />
+  </header>
+
+  <div class="legal">
+    <h1>Terms of Service</h1>
+    <p class="updated">Last updated: 2026-11-24</p>
+
+    <p>These terms ("Terms") govern your use of the LinkLasso Chrome extension ("the Extension"). By installing or using the Extension you agree to these Terms. If you do not agree, please uninstall the Extension.</p>
+
+    <h2>1. What LinkLasso is</h2>
+    <p>LinkLasso is a browser extension that lets you select multiple links on a page and open, copy or export them. Some features are free; others ("Pro") require a paid plan or an active free trial.</p>
+
+    <h2>2. License</h2>
+    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to install and use the Extension for your own personal or internal business purposes, subject to these Terms. You may not copy, modify, distribute, sell, rent, or reverse-engineer the Extension.</p>
+
+    <h2>3. Pro (paid features)</h2>
+    <ul>
+      <li>Pro features are licensed through the Chrome Web Store via ExtensionPay. Payments are handled by <strong>Paddle</strong>, which acts as the merchant of record; we do not see or store your payment card details.</li>
+      <li>A free trial may be offered; its length is shown at sign-up.</li>
+      <li>Prices, plans and renewal terms are shown at checkout and in the ExtensionPay dashboard.</li>
+      <li>Refunds, invoices and tax are handled by Paddle (merchant of record), according to the Chrome Web Store and ExtensionPay/Paddle policies.</li>
+    </ul>
+
+    <h2>4. Acceptable use</h2>
+    <p>You agree not to use the Extension to:</p>
+    <ul>
+      <li>Violate any law or the terms of the websites you visit.</li>
+      <li>Send unsolicited bulk traffic or otherwise abuse or overload websites.</li>
+      <li>Infringe the rights of others.</li>
+    </ul>
+
+    <h2>5. Google Sheets export</h2>
+    <p>The optional "Sheets" feature lets you create a spreadsheet in your own Google Drive. By using it you authorize the Extension to create a new spreadsheet and write the selected links into it. You can disconnect Google access at any time in the settings. See the Privacy Policy for details.</p>
+
+    <h2>6. Third-party services</h2>
+    <p>The Extension integrates with ExtensionPay, Paddle (merchant of record) and Google. These services have their own terms and privacy policies, which you should review.</p>
+
+    <h2>7. Disclaimer of warranties</h2>
+    <p>The Extension is provided "as is" and "as available", without warranties of any kind, express or implied. We do not guarantee that it will be error-free, uninterrupted, or suitable for your particular purpose.</p>
+
+    <h2>8. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential or punitive damages, or for any loss of profits, data or goodwill, arising out of or related to your use of the Extension.</p>
+
+    <h2>9. Changes</h2>
+    <p>We may update these Terms from time to time. Continued use of the Extension after changes means you accept the updated Terms.</p>
+
+    <h2>10. Contact</h2>
+    <p>For questions about these Terms, contact us via the Chrome Web Store support link or at fodylabs.com.</p>
+  </div>
+
+  <footer class="section alt footer">
+    <div class="container">
+      <div class="muted">LinkLasso · Select, Open &amp; Export Multiple Links</div>
+      <div class="flinks">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy</a>
+        <a href="https://fodylabs.com">FodyLabs</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/i18n.js" is:inline></script>
+  <script is:inline>I18N.init();</script>
+</body>
+</html>
