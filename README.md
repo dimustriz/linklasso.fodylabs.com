@@ -27,7 +27,8 @@ Static site on Cloudflare Pages (`linklasso.fodylabs.com`). GitHub Actions (`.gi
 Required in the GitHub repo settings:
 
 - **Secrets** — `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
-- **Variable** — `CLOUDFLARE_PAGES_PROJECT`: the Cloudflare Pages project name.
+
+The Cloudflare Pages project name is hardcoded in the workflow as `linklasso`.
 
 The store / OAuth consent screen URLs:
 
