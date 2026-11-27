@@ -1,0 +1,10 @@
+# LinkLasso
+
+> LinkLasso — select, open & export multiple links. Drag a box to open, copy or export links with filters, metadata enrichment and a smart open queue for SEO research.
+
+## Product
+
+- [LinkLasso](https://linklasso.fodylabs.com/): the browser extension.
+- [Linkclump alternative](https://linklasso.fodylabs.com/linkclump-alternative/): how it compares to Linkclump.
+- [Privacy](https://linklasso.fodylabs.com/privacy/): privacy policy.
+- [Terms](https://linklasso.fodylabs.com/terms/): terms of service.
